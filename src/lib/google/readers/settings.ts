@@ -11,7 +11,7 @@ async function fetchSettings(): Promise<SiteSettings> {
   }
 
   for (const row of rows.slice(1)) {
-    const [key, value] = row;
+    const [key, , value] = row;
     if (key?.trim() && value !== undefined) {
       settings[key.trim()] = value.trim();
     }
