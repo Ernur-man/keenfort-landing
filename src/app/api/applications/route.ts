@@ -36,7 +36,6 @@ export async function POST(request: Request) {
           );
         }
       } catch (sheetMonkeyError) {
-        
         console.error("SheetMonkey fetch error:", sheetMonkeyError);
       }
     } else {
@@ -62,7 +61,7 @@ export async function POST(request: Request) {
     if (error instanceof ApplicationServiceError) {
       return NextResponse.json(
         { success: false, message: error.message },
-        { status: 400 },
+        { status: error.status },
       );
     }
 
